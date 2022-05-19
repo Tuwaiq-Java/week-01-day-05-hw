@@ -30,7 +30,7 @@ in addition to that, it has toString() method to print each employee details
 
 Main : 
 
-`
+```
         FullTimeEmployee fullTimeEmployee1=new FullTimeEmployee(1,"Saleh",100);
         FullTimeEmployee fullTimeEmployee2=new FullTimeEmployee(2,"Ali",50);
 
@@ -47,14 +47,14 @@ Main :
 
         System.out.println(company);
         System.out.println(company.computeAmount());
-`        
+```       
 
 Output : 
 
-` 
+```
 Company{payables=[Employee{id=1, name='Saleh'}, Employee{id=2, name='Ali'}, Employee{id=1, name='Khalid'}, Employee{id=2, name='Noura'}], name='Tuwaiq'}
 1415.0
-`
+```
 
 
 
