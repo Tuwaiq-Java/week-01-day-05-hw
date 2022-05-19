@@ -8,9 +8,9 @@ public class FullTimeEmployee extends Employee {
 
     @Override
     public double ComputeAmount() {
-        double amount=0;
-        amount +=weeklySalary;
-        return amount;
+        
+      
+        return 4*weeklySalary; 
     }
 }
 
