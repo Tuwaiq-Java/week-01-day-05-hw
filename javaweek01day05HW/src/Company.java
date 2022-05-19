@@ -31,16 +31,16 @@ public class Company implements PayAble {
     }
 
     public String toString() {
-        String str = "Company " + name + "[";
+        String str = "Company " + name + "[PayAbles: ";
         for(PayAble employee: list) {
                 if(employee instanceof FullTimeEmployee) {
                     FullTimeEmployee em1 = (FullTimeEmployee) employee;
-                    str += em1.toString() + " ";
+                    str += em1.toString() ;
                 } else if (employee instanceof PartTimeEmployee) {
                     PartTimeEmployee pt1 = (PartTimeEmployee) employee;
-                    str += pt1.toString() + " ";
+                    str += pt1.toString() ;
                 }
-
+            str +=" ";
         }
         return str += "]";
     }
