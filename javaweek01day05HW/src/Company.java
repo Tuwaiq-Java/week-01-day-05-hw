@@ -3,9 +3,11 @@ import java.util.ArrayList;
 public class Company implements PayAble {
 
     ArrayList<PayAble> list;
+    String name;
 
-    public Company() {
+    public Company(String name) {
         this.list = new ArrayList<>();
+        this.name = name;
     }
 
     public boolean addPayAble(PayAble payAble) {
@@ -16,7 +18,8 @@ public class Company implements PayAble {
     public double computeAmount() {
         double total =0;
         for(PayAble employee : list ) {
-            if(employee instanceof FullTimeEmployee) {
+            if(employee instanceof FullTimeEmployee)
+            {
                 FullTimeEmployee em1 = (FullTimeEmployee) employee;
                 total += em1.computeAmount();
             } else if (employee instanceof PartTimeEmployee) {
@@ -28,14 +31,14 @@ public class Company implements PayAble {
     }
 
     public String toString() {
-        String str = "[";
+        String str = "Company " + name + "[";
         for(PayAble employee: list) {
                 if(employee instanceof FullTimeEmployee) {
                     FullTimeEmployee em1 = (FullTimeEmployee) employee;
-                    str += em1.toString();
+                    str += em1.toString() + " ";
                 } else if (employee instanceof PartTimeEmployee) {
                     PartTimeEmployee pt1 = (PartTimeEmployee) employee;
-                    str += pt1.toString();
+                    str += pt1.toString() + " ";
                 }
 
         }
