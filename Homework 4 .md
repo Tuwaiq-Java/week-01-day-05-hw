@@ -26,7 +26,7 @@ in addition to that, it has toString() method to print each employee details
 
 6-Create a class to test your code “**Main method**” in the Main method, add some **FullTimeEmployee** and **PartTimeEmployee** objects to the list and then compute the total amount of salaries
 
-<img width="572" alt="image" src="https://user-images.githubusercontent.com/58336325/169289757-7dc9af1a-1e75-411c-8850-695f5eef9c3e.png">
+<img width="614" height="600" alt="image" src="https://user-images.githubusercontent.com/58336325/169290497-f8aef6c1-300a-46e0-bc1e-0360cbe100d4.png">
 
 
 
