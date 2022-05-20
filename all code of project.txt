@@ -1,0 +1,99 @@
+***************************************payable class code************************************************
+public interface PayAble {
+    public double ComputeAmount();}
+***************************************Employee class code*************************************************
+public abstract class Employee implements PayAble { 
+    private String name;
+    private int ID;
+    public Employee(String name , int ID) {
+        this.name = name;
+        this.ID = ID;
+    }
+@Override
+public abstract double ComputeAmount();
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", ID=" + ID +
+                '}';
+    }
+}
+************************************partTime class code***************************************************
+public class PartTimeEmployee extends Employee{
+    private int workHour;
+    private int wage;
+
+    public PartTimeEmployee(String name, int ID, int workHour, int wage) {
+        super(name, ID);
+        this.workHour = workHour;
+        this.wage = wage;
+    }
+    @Override
+    public double ComputeAmount(){
+        return this.wage *this.workHour;
+    }
+}
+*************************************fullTime class code*****************************************************
+public class FullTimeEmployee extends Employee{
+    private int weeklySalary;
+    public FullTimeEmployee(String name, int ID, int weeklySalary) {
+        super(name, ID);
+        this.weeklySalary = weeklySalary;
+    }
+    @Override
+    public double ComputeAmount(){
+        return 4*(this.weeklySalary);
+    }
+}
+*************************************company class code******************************************************
+import java.util.ArrayList;
+import java.util.List;
+public class Company implements PayAble{
+        private String name;
+        private List <PayAble> list=new ArrayList <PayAble>();
+        public Company(String name) {
+            this.name = name;
+        }
+        public boolean add(PayAble P){
+            list.add(P);
+            return true;
+        }
+    @Override
+    public double ComputeAmount(){
+        double amount=0.0;
+        for(PayAble P1:list)
+            amount+=P1.ComputeAmount();
+        return amount;
+    }
+    @Override
+    public String toString() {
+        return "Company{" +
+                "name='" + name + '\'' +
+                ", payables:" + list +
+                '}';
+    }
+            }
+*****************************************main class*************************************************
+public class Main {
+    public static void main(String[] args) {
+
+        FullTimeEmployee fullTimeEmployee1=new FullTimeEmployee("Saleh",1,100);
+        FullTimeEmployee fullTimeEmployee2=new FullTimeEmployee("Ali",2,50);
+
+        PartTimeEmployee partTimeEmployee1=new PartTimeEmployee("Khalid",1,8,100);
+        PartTimeEmployee partTimeEmployee2=new PartTimeEmployee("Noura",2,5,3);
+
+        Company company=new Company("Tuwaiq");
+
+        company.add(fullTimeEmployee1);
+        company.add(fullTimeEmployee2);
+
+        company.add(partTimeEmployee1);
+        company.add(partTimeEmployee2);
+
+        System.out.println(company);
+        System.out.println(company.ComputeAmount());
+    }
+}
