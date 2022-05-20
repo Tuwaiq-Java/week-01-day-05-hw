@@ -12,13 +12,10 @@ public class FullTimeEmployee extends Employee{
     }
 
     public void setWeeklySalary(int weeklySalary) {
-        try {
-            if(weeklySalary>=0)
-                this.weeklySalary = weeklySalary;
 
-        }catch (IllegalArgumentException e){}
-        System.out.println("Can not be less than 0 SA");
+                this.weeklySalary = weeklySalary;
     }
+
 
     public double computeAmount(){
         return 4*weeklySalary;
