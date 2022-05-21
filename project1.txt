@@ -1,0 +1,132 @@
+package Fisrt_Project;
+
+public interface PayAble {
+    public Double computeAmount();
+}
+
+/////////
+
+
+package Fisrt_Project;
+
+public  abstract class Employee implements PayAble{
+    private String name;
+    private int id;
+
+    public Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    @Override
+   public Double computeAmount() {
+        return null;
+    }
+    public String toString(){
+        return " Employee {id ="+id+" , "+"name ="+name+"}";
+    }
+
+}
+
+//////////
+
+
+package Fisrt_Project;
+
+public class FullTimeEmployee extends Employee{
+    private  int weekSalary;
+
+    public FullTimeEmployee(String name, int id, int weekSalary) {
+        super(name, id);
+        this.weekSalary = weekSalary;
+    }
+
+    @Override
+    public Double computeAmount(){
+       double amount= 4*weekSalary;
+       return amount;
+    }
+}
+
+/////////
+
+package Fisrt_Project;
+
+public class PartTimeEmployee extends Employee {
+    private int workHours;
+    private int wage;
+
+    public PartTimeEmployee(String name, int id, int workHours, int wage) {
+        super(name, id);
+        this.workHours = workHours;
+        this.wage = wage;
+    }
+
+    @Override
+    public Double computeAmount() {
+        double amount=wage*workHours;
+        return amount;
+    }
+}
+
+///////////
+
+
+package Fisrt_Project;
+
+import java.util.ArrayList;
+
+public class Company {
+    private String name;
+    private ArrayList<PayAble> list =new ArrayList<>();
+
+
+    public Company(String name) {
+        this.name = name;
+    }
+    public boolean add(PayAble p){// is working
+list.add(p);
+return true;
+    }
+    public Double computeAmount(){
+        double a=0;
+        for(PayAble p:list){
+            a=a+p.computeAmount();
+        }
+        return a;
+    }
+    public String toString(){
+        return "Company { payables="+list+","+"name  ='"+name+"' }";
+    }
+
+}
+
+//////////
+
+
+package Fisrt_Project;
+
+public class Test {
+    public static void main(String[] args) {
+        FullTimeEmployee fullTimeEmployee1=new FullTimeEmployee("Saleh",1,100);
+
+        FullTimeEmployee fullTimeEmployee2=new FullTimeEmployee("Ali",2,50);
+
+        PartTimeEmployee partTimeEmployee1=new PartTimeEmployee("Khalid",1,8,100);
+
+        PartTimeEmployee partTimeEmployee2=new PartTimeEmployee("Noura",2,5,3);
+
+        Company company=new Company("Tuwaiq");
+
+        company.add(fullTimeEmployee1);
+        company.add(fullTimeEmployee2);
+
+        company.add(partTimeEmployee1);
+        company.add(partTimeEmployee2);
+
+        System.out.println(company);
+
+        System.out.println(company.computeAmount());
+    }
+}
+
