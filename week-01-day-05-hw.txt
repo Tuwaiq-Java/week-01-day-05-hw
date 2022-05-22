@@ -1,0 +1,133 @@
+package Company.com;
+
+    public class Company {
+        private String name;
+        private double amount;
+        double PayAble[];
+
+
+        public Company(String name ) {
+            this.name = name;
+
+
+        }
+
+        public void add(PayAble p){
+
+        }
+        public double computeAmount (double amount ){
+            this.amount =amount;
+            return amount;
+        }
+
+        @Override
+        public String toString() {
+            return "Company{" +
+                    "name='" + name + '\''
+                    +
+                    '}';
+        }
+    }
+
+------
+
+package Company.com;
+
+interface PayAble {
+    public  double  ComputeAmount();
+
+}
+
+---------
+package Company.com;
+
+public class FullTimeEmployee  extends  Employee{
+
+
+
+        private int weekSalary ;
+
+    public FullTimeEmployee(int id,  String name ,int weekSalary) {
+
+        super(id,name, weekSalary);
+        this.id=id;
+        this.name=name;
+        this.weekSalary=weekSalary;
+
+    }
+
+---------------
+
+package Company.com;
+
+public class partTimeEmployee  extends  Employee
+    {
+        private  int workHour;
+        private int wage ;
+
+        public partTimeEmployee(String name, int id , int wage, int workHour)
+        {
+            super(workHour, name, wage);
+
+            this.name=name;
+            this.id=id;
+            this.wage=wage;
+            this.workHour=workHour;
+
+
+        }
+
+            public double computeAmount () {
+                return workHour * wage;
+            }
+
+            @Override
+            public String toString () {
+                return "partTimeEmployee{" +
+                        "workHour=" + workHour +
+                        ", wage=" + wage +
+                        '}';
+            }
+        }
+
+-----------------------
+
+package Company.com;
+
+
+ class Employee implements PayAble
+{
+    public double amount;
+    String name;
+    int id;
+
+    public Employee(int id, String name, int weekSalary)
+    {
+        System.out.println("Constructing an Employee");
+
+
+    }
+
+
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public  double  ComputeAmount(){
+
+        return 0;
+    }
+
